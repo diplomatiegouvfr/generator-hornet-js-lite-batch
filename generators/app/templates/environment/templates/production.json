@@ -1,0 +1,32 @@
+{
+  "contextPath": "#{APPLICATION_CONTEXT_ROOT}",
+  "localeI18n": {
+    "locale": "fr-FR",
+    "lang": "fr"
+  },
+  "database": {
+    "config": {
+      "uri": "#{DATABASE_URI}",
+      "options": {
+        "pool": {
+          "max": 5,
+          "min": 0,
+          "idle": 1000
+        },
+        "define": {
+          "timestamps": false
+        },
+        "loggingLevel": "INFO"
+      }
+    }
+  },
+  "mock": {
+    "enabled": false
+  },
+  "fullSpa": {
+    "enabled": false
+  },
+  "cache": {
+    "enabled": false
+  }
+}

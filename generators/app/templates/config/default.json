@@ -1,0 +1,58 @@
+{
+  "contextPath": "<%= slugify(appname) %>",
+  "localeI18n": {
+    "locale": "fr-FR",
+    "lang": "fr"
+  },
+  "server": {
+    "route": "js1",
+    "port": 8888,
+    "portMonitor": 9999,
+    "keepAlive": true,
+    "keepAliveTimeout": 15000,
+    "maxConnections": 100,
+    "timeout": 300000,
+    "uploadFileSize": 1000000,
+    "sessionTimeout": 1800000,
+    "stackTraceLimit": 100,
+    "bodyParserLimit": "50mb"
+  },
+  "database": {
+    "config": {
+      "basename": "sequelize",
+      "username": "test",
+      "password": "test",
+      "options": {
+        "dialect": "sqlite",
+        "storage": "./database/database.sqlite",
+        "pool": {
+          "max": 15,
+          "min": 0,
+          "idle": 1000
+        },
+        "define": {
+          "timestamps": false
+        },
+        "loggingLevel": "DEBUG"
+      },
+      "reload": true
+    },
+    "configPostgres": {
+      "uri": "postgres://hornetjs@localhost:5432/<%= slugify(appname) %>",
+      "options": {
+        "pool": {
+          "max": 5,
+          "min": 0,
+          "idle": 1000
+        },
+        "define": {
+          "timestamps": false
+        },
+        "loggingLevel": "INFO"
+      }
+    }
+  },
+  "batch": {
+    "printTimer": 15000
+  }
+}

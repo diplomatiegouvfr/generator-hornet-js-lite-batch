@@ -1,0 +1,6 @@
+Description:
+    Créé une application web Hornet.js par défaut
+
+Example:
+    yo hornet-js
+

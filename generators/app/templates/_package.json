@@ -1,0 +1,37 @@
+{
+  "name": "<%= slugify(appname) %>",
+  "version": "<%= appversion %>",
+  "main": "index.js",
+  "description": "<%= appdescription %>",
+  "tsDefinitionDependencies": {
+    "hornet-js-ts-typings": "<%= fmkversion %>",
+    "hornet-js-utils-dts": "<%= fmkversion %>",
+    "hornet-js-database-dts": "<%= fmkversion %>",
+    "hornet-js-bean-dts": "<%= fmkversion %>",
+    "hornet-js-core-dts": "<%= fmkversion %>",
+    "hornet-js-batch-dts": "<%= fmkversion %>",
+    "hornet-js-components-dts": "<%= fmkversion %>",
+    "hornet-js-test-dts": "<%= fmkversion %>"
+  },
+  "appDependencies": {
+    "hornet-js-components": "<%= fmkversion %>",
+    "hornet-js-database": "<%= fmkversion %>",
+    "hornet-js-bean": "<%= fmkversion %>",
+    "hornet-js-core": "<%= fmkversion %>",
+    "hornet-js-batch": "<%= fmkversion %>",
+    "hornet-js-utils": "<%= fmkversion %>",
+    "pg": "7.3.0",
+    "pg-hstore": "2.3.2",
+    "pg-native": "2.2.0",
+    "sqlite3": "3.1.8"
+  },
+  "buildDependencies": {},
+  "testDependencies": {
+    "hornet-js-test": "<%= fmkversion %>"
+  },
+  "scripts": {
+    "init-dev": "hb install",
+    "start": "node index.js"
+  },
+  "author": "MEAE - Ministère de l'Europe et des Affaires étrangères"
+}
