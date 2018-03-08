@@ -4,8 +4,8 @@
 ##  Version       : 1.0.2                                                   ##
 ##  Description   :  Lancement d'un batch associé                           ##
 ##                   à l'application <%= slugify(appname) %>.               ##
-##   Parametres   : Param numero 1 : le serveur node de l'appli             ##
-##                  Param numero 2 : le port du serveur                     ##
+##   Parametres   : Param numero 1 : hostname du serveur                    ##
+##                  Param numero 2 : port du serveur                        ##
 ##                  Param numero 3 : le nom du job devant etre declenche    ##
 ##                                                                          ##
 ##   Code retour  :  0 - execution reussie                                  ##
@@ -24,22 +24,22 @@ date +"%y/%m/%d_%H:%M:%S"
 DIRNAME=`dirname $0`
 
 # USAGE
-USAGE="Auto_RunJob.sh {Param 1 : adresse IP ou nom du serveur node} {Param 2 : port HTTP de l'instance node} {Param 3 : Nom du job}"
+USAGE="Auto_RunJob.sh {Param 1 : hostname du serveur} {Param 2 : port du serveur} {Param 3 : Nom du job}"
 
 # Le serveur d'applications web hebergeant l'instance
-node_server=$1
-if [ "x$node_server" = "x" ]
+hostname=$1
+if [ "x$hostname" = "x" ]
 then
-	echo Parametre numero 1 manquant !
+	echo Parametre hostname manquant !
 	echo USAGE : $USAGE
 	exit 1	
 fi
 
 # Le port d'ecoute de l'instance HTTP du serveur
-node_port=$2
-if [ "x$node_port" = "x" ]
+port=$2
+if [ "x$port" = "x" ]
 then
-	echo Parametre numero 2 manquant !
+	echo Parametre port manquant !
 	echo USAGE : $USAGE
 	exit 1	
 fi
@@ -54,7 +54,7 @@ then
 fi
 
 
-URL=http://$node_server:$node_port/<%= slugify(appname) %>/batch/$job
+URL=http://$hostname:$port/<%= slugify(appname) %>/batch/$job
 echo $URL
 # Fichier qui contiendra le résultat de la requête URL.
 mkdir -p $DIRNAME/resultat_$job
@@ -72,7 +72,7 @@ ENCOURS=1
 # Tant que le traitement est en attente, on reinterroge toutes les REFRESH_EVERY secondes
 while [ $ENCOURS -eq 1 ]
 do
-	wget -q -O - "$URL" >  $RESULT_HTTP
+	wget -O - "$URL" >  $RESULT_HTTP
 	code_retour=$?
 	if [ $code_retour -ne 0 ]; then
 		echo Pb survenu lors de l\'execution de la commande WGET \(code retour $code_retour \)

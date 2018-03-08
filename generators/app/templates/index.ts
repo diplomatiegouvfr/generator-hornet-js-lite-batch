@@ -139,6 +139,9 @@ require.main.paths.push(path.join(process.cwd(), NODE_MODULES_APP));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// gestion des sourcemap dans les stack nodejs
+require("source-map-support").install();
+
 // autorise le format json5 dans les extensions .json
 import { JSONLoader } from "hornet-js-utils/src/json-loader";
 JSONLoader.allowJSON5();

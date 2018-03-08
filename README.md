@@ -7,7 +7,7 @@ Le module Node « generator-hornet-js-lite-batch » contient les éléments de c
 ## Pré-requis
 
 * NodeJS 6.X
-* hornet-js-builder >1.4.X installé en global:
+* hornet-js-builder >1.3.X installé en global:
 
 ```shell
     $ npm install -g hornet-js-builder
@@ -53,7 +53,7 @@ Le générateur va vous demander plusieurs informations nécessaires à l'initia
 * ` Nom de votre projet: (nom_de_l_application) ` : par défaut, le nom du répertoire est suggéré comme nom technique du projet
 * ` Version de votre projet:` `(1.0.0)` : version du projet (`1.0.0` par défaut).
 * ` Description de votre projet ` : un texte court présentant succintement le projet.
-* ` Version du framework (hornet-js):` `(5.1.0)` : version du framework hornet-js (`5.1.0` par défaut identique à generator-hornet-js).
+* ` Version du framework (hornet-js):` `(5.0.0)` : version du framework hornet-js (`5.0.0` par défaut identique à generator-hornet-js).
 * ` URL de base des services de l'application: ` : URL où sont accessibles les services de votre application.
 
 Le processus d'initialisation vous indique ensuite les fichiers créés :

@@ -46,7 +46,7 @@ module.exports = Generator.extend({
             type: "input",
             name: "appversion",
             message: "Version de votre projet",
-            default: "1.0.0-rc.1"
+            default: "1.0.0"
         });
         prompts.push({
             when: function () {
@@ -117,11 +117,26 @@ module.exports = Generator.extend({
         //builder.js
         this._copy("builder.js");
 
+        //hbw.sh
+        this._copy("hbw.sh", defaultConfig);
+
+        //Jenkinsfile
+        this._copy("Jenkinsfile", defaultConfig);
+
+        //trigger-rundeck.js
+        this._copy("trigger-rundeck.js", defaultConfig);
+
         //index.ts
         this._copy("index.ts");
 
         // package.json
         this._copy("_package.json", "package.json", defaultConfig);
+
+        // .gitignore
+        this._copy("gitignore", ".gitignore", defaultConfig);
+
+        // npmignore
+        this._copy("npmignore", ".npmignore", defaultConfig);
 
         // src
         this._writingSrc(defaultConfig);
@@ -188,9 +203,6 @@ module.exports = Generator.extend({
         //injector-context.ts
         this._copy("src/injector-context.ts", defaultConfig);
 
-        // npmignore
-        this._copy(".npmignore");
-
         //README.md
         this._copy("README.md", defaultConfig);
     },
@@ -244,6 +256,6 @@ module.exports = Generator.extend({
     },
 
     install: function () {
-        this.installDependencies();
+        this.installDependencies({bower: false});
     }
 });

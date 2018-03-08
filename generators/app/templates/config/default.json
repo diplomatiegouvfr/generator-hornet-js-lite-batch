@@ -23,6 +23,7 @@
       "username": "test",
       "password": "test",
       "options": {
+        "operatorsAliases": false,
         "dialect": "sqlite",
         "storage": "./database/database.sqlite",
         "pool": {
@@ -40,6 +41,7 @@
     "configPostgres": {
       "uri": "postgres://hornetjs@localhost:5432/<%= slugify(appname) %>",
       "options": {
+        "operatorsAliases": false,
         "pool": {
           "max": 5,
           "min": 0,

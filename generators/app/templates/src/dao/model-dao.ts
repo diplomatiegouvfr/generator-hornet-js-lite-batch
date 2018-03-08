@@ -12,7 +12,7 @@ export class ModelDAO extends HornetSequelizeModel {
     @Entity("secteur", SecteurModel)
     public secteurEntity: Sequelize.Model<any, any>;
 
-    constructor(@inject("config")conf?: string) {
+    constructor(@inject("configApplitutoDatabase")conf?: string) {
         super(conf);
     }
 
