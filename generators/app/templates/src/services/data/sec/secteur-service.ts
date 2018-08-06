@@ -9,7 +9,7 @@ export abstract class SecteurService {
 
     abstract supprimer(data: SecteurMetier): Promise<any>;
 
-    abstract supprimerMasse(data: SecteurMetier[])
+    abstract supprimerMasse(data: SecteurMetier[]);
 
     abstract creer(secteur: any): Promise<any>;
 

@@ -138,11 +138,19 @@ module.exports = Generator.extend({
         // npmignore
         this._copy("npmignore", ".npmignore", defaultConfig);
 
+        // plopfile
+        this._copy("plopfile.js", "plopfile.js", defaultConfig);
+
         // src
         this._writingSrc(defaultConfig);
 
+        // test
+        this._writingTest(defaultConfig);
+
         // config
         this._writingConfig(defaultConfig);
+
+        this._writingPlopTemplate(defaultConfig);
 
         // database
         this._writingDataBase(defaultConfig);
@@ -206,7 +214,13 @@ module.exports = Generator.extend({
         //README.md
         this._copy("README.md", defaultConfig);
     },
-
+    _writingTest: function (defaultConfig) {
+        // templates
+        this._copy("test/**", "test/", defaultConfig);
+    },
+    _writingPlopTemplate: function (defaultConfig) {
+        this._copy("plop-templates/**", "plop-templates/", defaultConfig);
+    },
     _applyParam: function (answers, key, destkey) {
         var useDestKey = destkey || key;
         var answer = answers[key];

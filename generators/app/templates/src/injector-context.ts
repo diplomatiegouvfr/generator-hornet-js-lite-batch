@@ -1,6 +1,7 @@
 import { Injector } from "hornet-js-core/src/inject/injector";
+import { Scope } from "hornet-js-core/src/inject/injectable";
 
-Injector.register("configApplitutoDatabase", "config");
+Injector.register("databaseConfigName", "config");
 
 import { Utils } from "hornet-js-utils";
 import { SecteurServiceImpl } from "src/services/data/sec/secteur-service-impl";
@@ -10,7 +11,7 @@ if (Utils.config.getOrDefault("mock.enabled", false)) {
     // Mock des serviceData
 
 } else {
-    Injector.register(SecteurService, SecteurServiceImpl);
+    Injector.register(SecteurService, SecteurServiceImpl, Scope.SINGLETON);
 }
 
 

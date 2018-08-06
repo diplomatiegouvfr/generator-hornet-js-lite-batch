@@ -39,7 +39,7 @@ export class Server {
     static startApplication() {
         if (process.env.NODE_ENV !== "production") {
             let files;
-            let databaseConfName = Injector.getRegistered("configApplitutoDatabase");
+            let databaseConfName = Injector.getRegistered("databaseConfigName");
             if (databaseConfName === "config") {
                 files = ["database/01_createTablesSqlite.sql", "database/02_initDataSqlite.sql"];
             } else if (databaseConfName === "configPostgres") {

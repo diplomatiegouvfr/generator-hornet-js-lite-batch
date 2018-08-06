@@ -8,11 +8,10 @@ import { Entity } from "hornet-js-database/src/decorators/dec-seq-entity";
 
 @injectable(ModelDAO, Scope.SINGLETON, Side.SERVER)
 export class ModelDAO extends HornetSequelizeModel {
-
     @Entity("secteur", SecteurModel)
     public secteurEntity: Sequelize.Model<any, any>;
 
-    constructor(@inject("configApplitutoDatabase")conf?: string) {
+    constructor(@inject("databaseConfigName")conf?: string) {
         super(conf);
     }
 

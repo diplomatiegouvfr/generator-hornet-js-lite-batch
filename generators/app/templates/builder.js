@@ -1,7 +1,7 @@
 const path = require("path");
 module.exports = {
     type: "application-server",
-    authorizedPrerelease: "false",
+    authorizedPrerelease: "true",
 
     gulpTasks: function (gulp, project, conf, helper) {},
     externalModules: {
@@ -11,15 +11,13 @@ module.exports = {
     },
     config: {
         routesDirs: ["." + path.sep + "routes"],
-        clientExclude: {
-            dirs: [
-                path.join("src","services","data")],
-            filters: [
-                path.join("src","services","data")+"/.*-data\.*"
-            ]
-        },
-        typescript: {
-            // bin: __dirname + "/node_modules/build/typescript"
+        /*typescript: {
+            bin: __dirname + "/node_modules/build/typescript"
+        },*/
+        dev: {
+            // dllEntry: {
+            //     vendor: ["hornet-js-react-components", "hornet-js-components", "hornet-js-utils", "hornet-js-core", "hornet-js-bean"]
+            // }
         }
     }
 };

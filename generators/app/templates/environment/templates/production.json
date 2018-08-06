@@ -1,32 +1,26 @@
 {
   "contextPath": "#{APPLICATION_CONTEXT_ROOT}",
-  "localeI18n": {
-    "locale": "fr-FR",
-    "lang": "fr"
-  },
   "database": {
     "config": {
       "uri": "#{DATABASE_URI}",
-      "options": {
-        "pool": {
-          "max": 5,
-          "min": 0,
-          "idle": 1000
+      "options" : {
+        "pool" : {
+          "max" : #{DATABASE_POOL_MAX},
+          "min" : #{DATABASE_POOL_MIN},
+          "idle" : #{DATABASE_POOL_IDLE}
         },
         "define": {
-          "timestamps": false
+          "timestamps" : false
         },
-        "loggingLevel": "INFO"
+        "loggingLevel" : "#{DATABASE_LOGGING_LEVEL}"
       }
     }
   },
-  "mock": {
-    "enabled": false
-  },
-  "fullSpa": {
-    "enabled": false
-  },
-  "cache": {
-    "enabled": false
+  "request" : {
+    "cache": {
+      "server": {
+        "enabled": false
+      }
+    }
   }
 }
