@@ -205,6 +205,9 @@ module.exports = Generator.extend({
         // services
         this._copy("src/services/**", "src/services/", defaultConfig);
 
+        // utils
+        this._copy("src/utils/**", "src/utils/", defaultConfig);
+
         // server
         this._copy("src/server.ts", defaultConfig);
 
