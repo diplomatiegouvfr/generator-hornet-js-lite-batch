@@ -76,7 +76,6 @@ Ce fichier ne doit pas être modifié, excepté pour le log console. Les modific
 |-----------|-------------|--------|
 |contextPath| Contexte de l'application déployée|Par défaut vide|
 |welcomePage|Page de démarrage de l'application|Passé en paramètre du ServerConfiguration|
-|themeUrl|Url du thème CSS|[Protocol]://[host]:[port]/hornet/themeName|
 
 ```javascript
 {

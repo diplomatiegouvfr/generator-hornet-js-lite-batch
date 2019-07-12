@@ -1,20 +1,17 @@
-import { Utils } from "hornet-js-utils";
-import { Logger } from "hornet-js-utils/src/logger";
+import { Logger } from "hornet-js-logger/src/logger";
+import { Promise } from "hornet-js-utils/src/promise-api";
 import { HornetGenericDAO } from "hornet-js-database/src/sequelize/hornet-generic-dao";
 import { HornetSequelizeInstanceModel } from "hornet-js-database/src/sequelize/hornet-sequelize-attributes";
-import { inject } from "hornet-js-core/src/inject/inject";
 import { ModelDAO } from "src/dao/model-dao";
-import { injectable } from "hornet-js-core/src/inject/injectable";
 import { SecteurMetier } from "src/models/adm/sec-mod";
 import Map from "hornet-js-bean/src/decorators/Map";
-import * as Sequelize from "sequelize";
+import { Injector } from "hornet-js-core/src/inject/injector";
 
-const logger: Logger = Utils.getLogger("<%= slugify(appname) %>.src.dao.secteur-dao");
+const logger: Logger = Logger.getLogger("<%= slugify(appname) %>.src.dao.secteur-dao");
 
-@injectable()
 export class SecteurDAO extends HornetGenericDAO<ModelDAO, HornetSequelizeInstanceModel<any>> {
-    constructor(entity: string = "secteurEntity", @inject(ModelDAO) modelDAO?: ModelDAO) {
-        super(modelDAO[entity], modelDAO);
+    constructor(entity: string = "secteurEntity") {
+        super(Injector.getRegistered(ModelDAO)[entity], Injector.getRegistered(ModelDAO));
     }
 
     @Map(SecteurMetier)
@@ -35,10 +32,6 @@ export class SecteurDAO extends HornetGenericDAO<ModelDAO, HornetSequelizeInstan
 
     deleteById(id: number | number[]) {
         return this.entity.destroy({ where: { id } });
-    }
-
-    getEntity(): Sequelize.Model<any, any> {
-        return this.entity;
     }
 
 }

@@ -1,4 +1,5 @@
 import { SecteurMetier } from "src/models/adm/sec-mod";
+import { Promise } from "hornet-js-utils/src/promise-api";
 
 /**
  * Interface des services pour les secteurs

@@ -1,6 +1,6 @@
 import * as Sequelize from "sequelize";
 
-export let SecteurModel: Sequelize.DefineAttributes = {
+export let SecteurModel: Sequelize.ModelAttributes = {
     id: {
         type: Sequelize.INTEGER,
         field: "id_secteur",

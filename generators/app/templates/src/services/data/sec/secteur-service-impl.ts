@@ -1,11 +1,11 @@
-import { Utils } from "hornet-js-utils";
-import { Logger } from "hornet-js-utils/src/logger";
+import { Logger } from "hornet-js-logger/src/logger";
 import { SecteurService } from "src/services/data/sec/secteur-service";
 import { SecteurDAO } from "src/dao/secteur-dao";
 import { SecteurMetier } from "src/models/adm/sec-mod";
 import { BusinessError } from "hornet-js-utils/src/exception/business-error";
+import { Promise } from "hornet-js-utils/src/promise-api";
 
-const logger: Logger = Utils.getLogger("<%= slugify(appname) %>.services.adm.secteur-service-data-impl");
+const logger: Logger = Logger.getLogger("<%= slugify(appname) %>.services.adm.secteur-service-data-impl");
 
 /**
  * Implementation des services pour les secteurs
@@ -70,8 +70,8 @@ export class SecteurServiceImpl extends SecteurService {
     }
 
     modifierSecteurs(): Promise<any> {
-        return this.secteurDAO.getEntity().bulkCreate([]).then(() => {
-            return this.secteurDAO.getEntity().update({
+        return this.secteurDAO.entity.bulkCreate([]).then(() => {
+            return this.secteurDAO.entity.update({
                 desc: "secteur batch 2.0"
             }, {
                     where: {
