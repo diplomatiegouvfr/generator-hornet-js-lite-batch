@@ -14,20 +14,19 @@
     "pg": "7.11.0",
     "sequelize": "5.8.9",
     "source-map-support": "0.5.12",
-    "sqlite3": "3.1.8",
     "tslib": "1.9.3"
   },
   "devDependencies": {
     "hornet-js-test": "<%= fmkversion %>",
     "inquirer-directory": "2.1.0",
-    "inquirer-file": "1.0.0"
+    "inquirer-file": "1.0.0",
+    "sqlite3": "4.0.8"
   },
   "scripts": {
     "init-dev": "hb install",
-    "start": "node index.js",
-    "plop": "node ./node_modules/plop"
+    "start": "node index.js"
 
   },
-  "hornetJsBuilder": "2.0.0",
+  "hornetJsBuilder": "2.0.2",
   "author": "MEAE - Ministère de l'Europe et des Affaires étrangères"
 }

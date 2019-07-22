@@ -13,7 +13,7 @@ const NODE_MODULES = "node_modules";
 
 // on surcharge la méthode de résolution interne nodejs pour gérer d'autres répertoires
 Module._newNodeModulePaths = function (from) {
-    var paths = [];
+    var paths = Module._oldNodeModulePaths.call(this, from);
     paths.push(path.join(appDirectory));
     paths.push(path.join(appDirectory, NODE_MODULES));
 
